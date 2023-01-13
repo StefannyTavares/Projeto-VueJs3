@@ -3,6 +3,34 @@
     {
       "id": 1,
       "nome": "Alura Tracker"
+    },
+    {
+      "nome": "oiii",
+      "id": 2
+    },
+    {
+      "nome": "ola",
+      "id": 3
+    }
+  ],
+  "tarefas": [
+    {
+      "id": 1,
+      "duracaoEmSegundos": 120,
+      "descricao": "Configuração",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker"
+      }
+    },
+    {
+      "duracaoEmSegundos": 10,
+      "descricao": "refactoração",
+      "projeto": {
+        "nome": "oiii",
+        "id": 2
+      },
+      "id": 2
     }
   ]
 }
