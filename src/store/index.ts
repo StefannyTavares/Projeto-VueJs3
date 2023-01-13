@@ -49,7 +49,8 @@ export const store = createStore<Estado>({
     actions: {
         [OBTER_PROJETOS] ({ commit }){
             http.get('projetos')
-                .then(resposta => commit(DEFINIR_PROJETOS, resposta.data))
+                .then(resposta => commit(DEFINIR_PROJETOS, 
+                    resposta.data))
         }
     }
 })
