@@ -9,16 +9,12 @@
       "id": 2
     },
     {
-      "nome": "ola",
+      "nome": "oiii",
       "id": 3
     },
     {
-      "nome": "ola oi",
+      "nome": "232323",
       "id": 4
-    },
-    {
-      "nome": "eee",
-      "id": 5
     }
   ],
   "tarefas": [
@@ -48,6 +44,15 @@
         "id": 4
       },
       "id": 3
+    },
+    {
+      "duracaoEmSegundos": 3,
+      "descricao": "33",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker"
+      },
+      "id": 4
     }
   ]
 }
