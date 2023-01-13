@@ -3,9 +3,12 @@
 ### Projeto realizado com a transição de Options API para Composition API.
 
 ##### Curso ALURA- Vue3: Composition API e Vuex.
-##### Projeto composto por: Bulma, Vuex, Axios e Vue-router.
+### Projeto composto por
+```
+Bulma, Vuex, Axios e Vue-router.
+```
 
-## Project setup
+### Project setup
 ```
 npm install
 ```
