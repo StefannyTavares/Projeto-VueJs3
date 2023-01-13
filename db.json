@@ -3,18 +3,6 @@
     {
       "id": 1,
       "nome": "Alura Tracker"
-    },
-    {
-      "nome": "oiii",
-      "id": 2
-    },
-    {
-      "nome": "oiii",
-      "id": 3
-    },
-    {
-      "nome": "232323",
-      "id": 4
     }
   ],
   "tarefas": [
@@ -26,42 +14,6 @@
         "id": 1,
         "nome": "Alura Tracker"
       }
-    },
-    {
-      "duracaoEmSegundos": 10,
-      "descricao": "refactoração",
-      "projeto": {
-        "nome": "oiii",
-        "id": 2
-      },
-      "id": 2
-    },
-    {
-      "duracaoEmSegundos": 4,
-      "descricao": "oiii",
-      "projeto": {
-        "nome": "ola oi",
-        "id": 4
-      },
-      "id": 3
-    },
-    {
-      "duracaoEmSegundos": 3,
-      "descricao": "33",
-      "projeto": {
-        "id": 1,
-        "nome": "Alura Tracker"
-      },
-      "id": 4
-    },
-    {
-      "duracaoEmSegundos": 3,
-      "descricao": "llllllllllll",
-      "projeto": {
-        "id": 1,
-        "nome": "Alura Tracker"
-      },
-      "id": 5
     }
   ]
 }
