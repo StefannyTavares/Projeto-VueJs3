@@ -46,8 +46,13 @@ export const store = createStore<Estado>({
 
     actions: {
 
-        [OBTER_TAREFAS] ({ commit }){
-            http.get('tarefas')
+        [OBTER_TAREFAS] ({ commit }, filtro: string){
+            let url = 'tarefas'
+
+            if(filtro){
+                url += '?descricao=' +filtro
+            }
+            http.get(url)
                 .then(resposta => commit(DEFINIR_TAREFAS, 
                     resposta.data))
         },

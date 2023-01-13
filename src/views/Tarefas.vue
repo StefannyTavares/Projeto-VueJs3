@@ -24,48 +24,40 @@
             :key="index"
             @aoTarefaClicada="selecionarTarefa"
         />
-        <div
-            class="modal"
-            :class="{ 'is-active': tarefaSelecionado }"
-            v-if="tarefaSelecionado"
-        >
-            <div class="modal-background"></div>
-            <div class="modal-card">
-                <header class="modal-card-head">
-                    <p class="modal-card-title">Editando tarefa</p>
-                    <button
-                        @click="fecharModal"
-                        class="delete"
-                        aria-label="close"
-                    ></button>
-                </header>
-                <section class="modal-card-body">
-                    <div class="field">
-                        <label for="descricaoDaTarefa" class="label">
-                            Descrição
-                        </label>
-                        <input
-                            type="text"
-                            class="input"
-                            v-model="tarefaSelecionado.descricao"
-                            id="descricaoDaTarefa"
-                        />
-                    </div>
-                </section>
-                <footer class="modal-card-foot">
-                    <button @click="alterarTarefa" class="button is-success">
-                        Salvando Tarefa
-                    </button>
-                    <button @click="fecharModal" class="button">
-                        Cancelar
-                    </button>
-                </footer>
-            </div>
-        </div>
+        <modal-comp :mostrar="tarefaSelecionado != null">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Editando tarefa</p>
+                <button
+                    @click="fecharModal"
+                    class="delete"
+                    aria-label="close"
+                ></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="field">
+                    <label for="descricaoDaTarefa" class="label">
+                        Descrição
+                    </label>
+                    <input
+                        type="text"
+                        class="input"
+                        v-model="tarefaSelecionado.descricao"
+                        id="descricaoDaTarefa"
+                    />
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button @click="alterarTarefa" class="button is-success">
+                    Salvando Tarefa
+                </button>
+                <button @click="fecharModal" class="button">Cancelar</button>
+            </footer>
+        </modal-comp>
     </div>
 </template>
 
 <script lang="ts">
+import ModalComp from "@/components/ModalComp.vue";
 import ITarefa from "@/interfaces/ITarefa";
 import { useStore } from "@/store";
 import {
@@ -74,7 +66,7 @@ import {
     OBTER_PROJETOS,
     OBTER_TAREFAS,
 } from "@/store/tipos-acoes";
-import { computed, defineComponent, ref } from "vue";
+import { computed, defineComponent, ref, watchEffect } from "vue";
 import Box from "../components/Box.vue";
 import Formulario from "../components/Formulario.vue";
 import Tarefa from "../components/Tarefa.vue";
@@ -85,6 +77,7 @@ export default defineComponent({
         Formulario,
         Tarefa,
         Box,
+        ModalComp,
     },
     data() {
         return {
@@ -118,14 +111,18 @@ export default defineComponent({
         store.dispatch(OBTER_PROJETOS);
 
         const filtro = ref("");
-        const tarefas = computed(() =>
+        /*const tarefas = computed(() =>
             store.state.tarefas.filter(
                 (t) => !filtro.value || t.descricao.includes(filtro.value)
             )
-        );
+        );*/
+
+        watchEffect(() => {
+            store.dispatch(OBTER_TAREFAS, filtro.value);
+        });
 
         return {
-            tarefas,
+            tarefas: computed(() => store.state.tarefas),
             store,
             filtro,
         };
