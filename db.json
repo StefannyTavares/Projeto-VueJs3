@@ -11,6 +11,10 @@
     {
       "nome": "ola",
       "id": 3
+    },
+    {
+      "nome": "ola oi",
+      "id": 4
     }
   ],
   "tarefas": [
@@ -31,6 +35,15 @@
         "id": 2
       },
       "id": 2
+    },
+    {
+      "duracaoEmSegundos": 4,
+      "descricao": "oiii",
+      "projeto": {
+        "nome": "ola oi",
+        "id": 4
+      },
+      "id": 3
     }
   ]
 }
