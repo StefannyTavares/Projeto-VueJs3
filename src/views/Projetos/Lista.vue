@@ -42,6 +42,7 @@
 import { useStore } from "@/store";
 import { computed, defineComponent } from "vue";
 import { EXCLUIR_PROJETO } from '@/store/tipo-mutacoes'
+import { OBTER_PROJETOS } from "@/store/tipos-acoes";
 
 export default defineComponent({
   name: "Lista",
@@ -52,6 +53,7 @@ export default defineComponent({
   },
   setup () {
     const store = useStore()
+    store.dispatch(OBTER_PROJETOS)
     return {
       projetos: computed(() => store.state.projetos),
       store
